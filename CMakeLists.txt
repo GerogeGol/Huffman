@@ -4,7 +4,7 @@ project(huffman_code VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_executable(huffman_code main.cpp Libs/Kravchi_88/Robin_Bobin_Barabek.c Libs/Kravchi_88/Robin_Bobin_Barabek.h)
+add_executable(huffman_code main.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

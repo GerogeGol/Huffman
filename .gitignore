@@ -57,3 +57,4 @@ CMakeTests.txt
 cmake-build-debug
 .vscode
 .idea
+/Libs/Kamysh/
