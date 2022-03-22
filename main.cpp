@@ -1,6 +1,7 @@
 #include <iostream>
+#include "Libs/Kamysh/iak_header.h"
+#include <string>
 
-int main(int, char**) {
-    std::cout << "Hello, world!\n";
-    std::cout << "Hello, world!\n";
+int main(int, char **) {
+    return 0;
 }
