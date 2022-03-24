@@ -3,14 +3,14 @@
 
 #define CODE_SIZE 100
 
-struct node {
-    unsigned char symb;
-    unsigned char isSymb;
-    unsigned int freq;
+typedef struct Node {
+    unsigned char symbol;
+    int is_symbol;
+    unsigned int frequency;
     unsigned char code[CODE_SIZE];
     int level;
-    node *left, *right, *next;
-};
+    struct Node *left, *right, *next;
+} Node;
 
 union bit2char {
     char symb;
