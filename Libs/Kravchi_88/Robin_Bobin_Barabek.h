@@ -4,7 +4,7 @@
 
 
 Node *generate_new_node(Node *left, Node *right);
-void add_to_queue(Node *New_node);
+void add_to_queue(Node *head, Node *new_node);
 Node *bebra(Node *head);
 
 #endif

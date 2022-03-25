@@ -1,24 +1,33 @@
 #include "Robin_Bobin_Barabek.h"
 
 Node *generate_new_node(Node *left, Node *right){
-    Node *New_node = (Node*)malloc(sizeof(Node));
-    New_node->symbol = 0;
-    New_node->is_symbol = 0;
-    New_node->frequency = left->frequency + right->frequency;
-    New_node->left = left;
-    New_node->right = right;
-    New_node->next = NULL;
-    return New_node;
+    Node *new_node = (Node*)malloc(sizeof(Node));
+    new_node->symbol = 0;
+    new_node->is_symbol = 0;
+    new_node->frequency = left->frequency + right->frequency;
+    new_node->left = left;
+    new_node->right = right;
+    new_node->next = NULL;
+    return new_node;
 }
 
-void add_to_queue(Node *head, Node *New_node){
-
+void add_to_queue(Node *head, Node *new_node){
+    int limit = new_node->frequency, current_frequency = head->frequency;
+    Node *current_node = head;
+    while (current_frequency < limit){
+        if (current_node->next->frequency == limit){
+            new_node->next = current_node->next;
+            current_node->next = new_node;
+            break;
+        }
+        current_node = current_node->next;
+        current_frequency = current_node->frequency;
+    }
 }
 
 Node *bebra(Node *head){
     while (head->next != NULL){
-        Node *left = head;
-        Node *right = head->next;
+        Node *left = head, *right = head->next;
         Node *new_node = generate_new_node(left, right);
         Node *new_head = head->next->next;
         add_to_queue(new_head, new_node);
