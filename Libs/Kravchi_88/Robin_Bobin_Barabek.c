@@ -11,7 +11,7 @@ Node *generate_new_node(Node *left, Node *right){
     return New_node;
 }
 
-void add_to_queue(Node *New_node){
+void add_to_queue(Node *head, Node *New_node){
 
 }
 
@@ -19,9 +19,10 @@ Node *bebra(Node *head){
     while (head->next != NULL){
         Node *left = head;
         Node *right = head->next;
-        Node *New_node = generate_new_node(left, right);
-        add_to_queue(New_node);
-        head = head->next->next;
+        Node *new_node = generate_new_node(left, right);
+        Node *new_head = head->next->next;
+        add_to_queue(new_head, new_node);
+        head = new_head;
     }
     return head;
 }
