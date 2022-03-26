@@ -1,9 +1,15 @@
 add_library(
+        HUF_priority_queue
+        priority_queue/priority_queue.h
+        priority_queue/priority_queue.c
+)
+target_include_directories(HUF_priority_queue PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/priority_queue")
+
+add_library(
     HUF_Utils
     utils/utils.h
     utils/utils.c
-
-        priority_queue/priority_queue.c priority_queue/priority_queue.h)
+)
 target_include_directories(HUF_Utils PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/utils")
 
 add_library(
@@ -12,10 +18,3 @@ add_library(
         Kravchi_88/Robin_Bobin_Barabek.c
 )
 target_include_directories(ROB PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Kravchi_88")
-
-add_library(
-        PRIORITY
-        priority_queue/priority_queue.h
-        priority_queue/priority_queue.c
-)
-target_include_directories(PRIORITY PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/priority_queue")

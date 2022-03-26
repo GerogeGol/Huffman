@@ -1,8 +1,8 @@
-//
-// Created by Ilya  on 26.03.2022.
-//
+#ifndef PRIORITY_QUEUE_H
+#define PRIORITY_QUEUE_H
+#include "../utils/utils.h"
 
-#ifndef HUFFMAN_CODE_PRIORITY_QUEUE_H
-#define HUFFMAN_CODE_PRIORITY_QUEUE_H
+void PushQueue(Node** queue, char symbol, int frequency);
+void PrintQueue(Node* queue);
 
-#endif //HUFFMAN_CODE_PRIORITY_QUEUE_H
+#endif
