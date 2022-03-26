@@ -3,7 +3,7 @@ add_library(
     utils/utils.h
     utils/utils.c
 
-)
+        priority_queue/priority_queue.c priority_queue/priority_queue.h)
 target_include_directories(HUF_Utils PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/utils")
 
 add_library(

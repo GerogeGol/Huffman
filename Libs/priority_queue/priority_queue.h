@@ -1,0 +1,8 @@
+//
+// Created by Ilya  on 26.03.2022.
+//
+
+#ifndef HUFFMAN_CODE_PRIORITY_QUEUE_H
+#define HUFFMAN_CODE_PRIORITY_QUEUE_H
+
+#endif //HUFFMAN_CODE_PRIORITY_QUEUE_H
