@@ -1,9 +1,9 @@
 add_library(
-        HUF_priority_queue
+        priority_queue
         priority_queue/priority_queue.h
         priority_queue/priority_queue.c
 )
-target_include_directories(HUF_priority_queue PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/priority_queue")
+target_include_directories(priority_queue PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/priority_queue")
 
 add_library(
     HUF_Utils

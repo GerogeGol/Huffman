@@ -12,7 +12,7 @@ typedef struct Node {
     struct Node *left, *right, *next;
 } Node;
 
-union bit2char {
+typedef union bit2char {
     char symb;
     struct bit {
         unsigned b0 : 1;
@@ -24,6 +24,10 @@ union bit2char {
         unsigned b6 : 1;
         unsigned b7 : 1;
     } byte;
-};
+} bit2char;
+
+void FillFreqArrayFromFile(char *file_name, int *freq_arr);
+char *CodeBitString(char *bit_string, int *tail, int *len);
+void WriteToFile(char *file_name, char *str);
 
 #endif
