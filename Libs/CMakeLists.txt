@@ -20,7 +20,7 @@ add_library(
 target_include_directories(ROB PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Kravchi_88")
 
 add_library(
-        ROB
+        Kamysh
         Kamysh/iak_source.cpp
         Kamysh/iak_header.h
 )
