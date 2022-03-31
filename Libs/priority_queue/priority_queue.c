@@ -21,8 +21,14 @@ void PushQueue(Node** queue, char symbol, int frequency)
 
 void PrintQueue(Node* queue)
 {
+    printf("Queue in format value(priority):\n");
     while (queue) {
-        printf("value: %c priority: %d\n", queue->symbol, queue->frequency);
+        printf("%c(%d)-->", queue->symbol, queue->frequency);
         queue = queue->next;
     }
+    printf("NULL\n");
+}
+void PR(int kek)
+{
+    printf("LOL\n");
 }
