@@ -18,3 +18,10 @@ add_library(
         Kravchi_88/Robin_Bobin_Barabek.c
 )
 target_include_directories(ROB PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Kravchi_88")
+
+add_library(
+        ROB
+        Kamysh/iak_source.cpp
+        Kamysh/iak_header.h
+)
+target_include_directories(ROB PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Kamysh")
