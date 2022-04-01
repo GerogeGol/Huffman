@@ -18,7 +18,7 @@ int main()
     PushQueue(&queue, 'd', 2);
     PrintQueue(queue);
 
-    char* str = "1111000000001111";
+    char* str = "beep boop beep";
     int len;
     int tail;
     char* coded = CodeBitString(str, &tail, &len);
