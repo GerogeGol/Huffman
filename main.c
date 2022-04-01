@@ -8,7 +8,7 @@
 
 int main()
 {
-    printf("KEK\n");
+    printf("WITH 1 APRIL!!!\n");
     Node* lol = NULL;
     Node* cheburek = NULL;
     //Node*kek = generate_new_node(lol, cheburek);
