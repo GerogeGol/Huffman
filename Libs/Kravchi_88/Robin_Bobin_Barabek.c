@@ -20,7 +20,7 @@ void add_to_queue(Node *head, Node *new_node)
     int limit = new_node->frequency, current_frequency = head->frequency;
     Node *current_node = head;
     while (current_frequency < limit) {
-        if (current_node->next->frequency == limit) {
+        if (current_node->next && current_node->next->frequency == limit) {
             new_node->next = current_node->next;
             current_node->next = new_node;
             break;
@@ -28,16 +28,4 @@ void add_to_queue(Node *head, Node *new_node)
         current_node = current_node->next;
         current_frequency = current_node->frequency;
     }
-}
-
-Node *bebra(Node *head)
-{
-    while (head->next != NULL) {
-        Node *left = head, *right = head->next;
-        Node *new_node = generate_new_node(left, right);
-        Node *new_head = head->next->next;
-        add_to_queue(new_head, new_node);
-        head = new_head;
-    }
-    return head;
 }

@@ -4,17 +4,22 @@
 #include <stdlib.h>
 
 #include "../utils/utils.h"
-void PushQueue(Node** queue, char symbol, int frequency)
+
+Node* CreateNode(char symbol, int frequency)
 {
-    while (*queue) {
-        if ((*queue)->frequency > frequency)
-            break;
-        queue = &((*queue)->next);
-    }
-    Node* pnew = (Node*)malloc(sizeof(Node));
+    Node* pnew = (Node*)calloc(1, sizeof(Node));
     pnew->symbol = symbol;
     pnew->is_symbol = 1;
     pnew->frequency = frequency;
+    return pnew;
+}
+void PushQueue(Node** queue, Node* pnew)
+{
+    while (*queue) {
+        if ((*queue)->frequency > pnew->frequency)
+            break;
+        queue = &((*queue)->next);
+    }
     pnew->next = *queue;
     *queue = pnew;
 }
