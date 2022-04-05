@@ -47,6 +47,14 @@ int main()
     Node* tree = CreateHUFTree(queue); // Дерево для кодирования
     PrintTree(tree, 0);
 
+
+    printf("\n\n\n\n\n\n\n\n");
+    char code[100] = {"\0"};
+    char alpha[256][1000];
+
+    CreateCodeArray(tree, 0, code, alpha);
+
+
     char* str = "1111000000001111";
     int len;
     int tail;
