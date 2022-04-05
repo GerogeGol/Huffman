@@ -11,4 +11,5 @@ typedef struct code_symbol {
     int code;
 } code_symbol;
 
-#endif //HUFFMAN_CODE_IAK_HEADER_H
+void CreateCodeArray(Node *root, int level, char *code, char alpha[256][1000]);
+#endif  // HUFFMAN_CODE_IAK_HEADER_H

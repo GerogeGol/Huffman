@@ -7,7 +7,7 @@ enable_testing()
 add_subdirectory(Libs)
 add_executable(huffman_code main.c)
 
-target_link_libraries(huffman_code PUBLIC ROB priority_queue HUF_Utils )
+target_link_libraries(huffman_code PUBLIC Kamysh ROB priority_queue HUF_Utils )
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

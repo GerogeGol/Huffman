@@ -2,8 +2,8 @@
 
 #include "Robin_Bobin_Barabek.h"
 #include "priority_queue.h"
+#include "string.h"
 #include "utils.h"
-
 //#include ".../priority_queue/priority_queue.h"
 void PrintTree(Node* root, int level)
 {
@@ -14,9 +14,12 @@ void PrintTree(Node* root, int level)
     for (int i = 0; i < level; i++) {
         printf("\t");
     }
-    if (root->is_symbol)
-        printf("%c - %d\n", root->symbol, root->frequency);
-    else
+    if (root->is_symbol) {
+        printf("%c - %d", root->symbol, root->frequency);
+        if (strlen(root->code) != 0)
+            printf(" - %s", root->code);
+        printf("\n");
+    } else
         printf("0\n");
     PrintTree(root->left, level + 1);
 }
@@ -44,17 +47,14 @@ int main()
         PushQueue(&queue, CreateNode(i, freq_arr[i]));
     }
     PrintQueue(queue);
-    Node* tree = CreateHUFTree(queue); // Дерево для кодирования
-    PrintTree(tree, 0);
-
+    Node* tree = CreateHUFTree(queue);  // Дерево для кодирования
 
     printf("\n\n\n\n\n\n\n\n");
     char code[100] = {"\0"};
     char alpha[256][1000];
 
     CreateCodeArray(tree, 0, code, alpha);
-
-
+    PrintTree(tree, 0);
     char* str = "1111000000001111";
     int len;
     int tail;
