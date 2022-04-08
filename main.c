@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "Robin_Bobin_Barabek.h"
+#include "decoding.h"
 #include "priority_queue.h"
 #include "string.h"
 #include "utils.h"
@@ -36,6 +37,16 @@ Node* CreateHUFTree(Node* head)
     return head;
 }
 
+int GetCountUnic(int* freq_arr)
+{
+    int k = 0;
+    for (int i = 0; i < 256; i++) {
+        if (freq_arr[i] != 0)
+            k++;
+    }
+    return k;
+}
+
 int main()
 {
     int freq_arr[256] = {0};
@@ -55,9 +66,24 @@ int main()
 
     CreateCodeArray(tree, 0, code, alpha);
     PrintTree(tree, 0);
-    char* str = "1111000000001111";
+    char* str = "01";
     int len;
     int tail;
+    int unic = GetCountUnic(freq_arr);
     char* coded = CodeBitString(str, &tail, &len);
-    WriteToFile("../output.txt", coded);
+
+    WriteToFile("../output.txt", coded, len * 8 + tail, unic, freq_arr);
+
+    char* new_str = (char*)calloc(10000, sizeof(char));
+    FILE* fr = fopen("../output.txt", "rb");
+    Node* new_que = NULL;
+    GetInfoFromFile(fr, &new_que, &len, &unic);
+    BuildFromFile(fr, new_str);
+    fclose(fr);
+
+    Node* new_tree = CreateHUFTree(new_que);
+    char code2 = {"\0"};
+    CreateCodeArray(new_tree, 0, code2, alpha);
+    FILE* fw = fopen("../output2.txt", "wb");
+    DecodedString(fw, new_tree, new_str, len);
 }

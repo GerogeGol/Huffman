@@ -22,10 +22,11 @@ char *CodeBitString(char *bit_string, int *tail, int *len)
 {
     int count = strlen(bit_string) / 8;
     *tail = strlen(bit_string) % 8;
-    *len = count + 1;
-    char *res = (char *)malloc((*len) * sizeof(char));
+    *len = count;
+
+    char *res = (char *)calloc(count + 1, sizeof(char));
     bit2char symb;
-    for (int i = 0; i < *len; i++) {
+    for (int i = 0; i < count + 1; i++) {
         symb.byte.b0 = bit_string[i * 8 + 0];
         symb.byte.b1 = bit_string[i * 8 + 1];
         symb.byte.b2 = bit_string[i * 8 + 2];
@@ -39,9 +40,16 @@ char *CodeBitString(char *bit_string, int *tail, int *len)
     return res;
 }
 
-void WriteToFile(char *file_name, char *str)
+void WriteToFile(char *file_name, char *str, int len, int unic, int *freq_arr)
 {
     FILE *fw = fopen(file_name, "wb");
-    fprintf(fw, "%s", str);
+
+    fprintf(fw, "%d %d ", len, unic);
+    for (int i = 0; i < 256; i++) {
+        if (freq_arr[i] != 0)
+
+            fprintf(fw, "%d %d ", i, freq_arr[i]);
+    }
+    fwrite(str, sizeof(char), strlen(str), fw);
     fclose(fw);
 }

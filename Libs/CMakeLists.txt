@@ -25,3 +25,10 @@ add_library(
         Kamysh/iak_header.h
 )
 target_include_directories(Kamysh PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Kamysh")
+
+add_library(
+    decoding
+    Decoding/decoding.h
+    Decoding/decoding.c
+)
+target_include_directories(decoding PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Decoding")
