@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include "../utils/utils.h"
 #include "iak_header.h"
 #include "stdio.h"
@@ -36,8 +37,10 @@ void CreateCodeArray(Node *root, int level, char *code, char alpha[256][1000])
     DelSymb(code);
 }
 
-void transferChar2Bin(char *word, code_symbol *alphabet, char *out)
+void transferChar2Bin(char *word, char *alpha, char *out, FILE *fr)
 {
-    for (int i = 0; i < sizeof(word); ++i) {
+    int c;
+    while ((c = fgetc(fr)) != EOF) { // standard C I/O file reading loop
+        strcat(out, alpha[c]);
     }
 }
