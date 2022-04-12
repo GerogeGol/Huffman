@@ -18,11 +18,9 @@ void FillFreqArrayFromFile(char *file_name, int *freq_arr)
     fclose(fr);
 }
 
-char *CodeBitString(char *bit_string, int *tail, int *len)
+char *CodeBitString(char *bit_string)
 {
     int count = strlen(bit_string) / 8;
-    *tail = strlen(bit_string) % 8;
-    *len = count;
 
     char *res = (char *)calloc(count + 1, sizeof(char));
     bit2char symb;

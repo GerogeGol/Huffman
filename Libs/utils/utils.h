@@ -27,7 +27,7 @@ typedef union bit2char {
 } bit2char;
 
 void FillFreqArrayFromFile(char *file_name, int *freq_arr);
-char *CodeBitString(char *bit_string, int *tail, int *len);
+char *CodeBitString(char *bit_string);
 void WriteToFile(char *file_name, char *str, int len, int unic, int *freq_arr);
 
 #endif

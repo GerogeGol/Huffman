@@ -54,6 +54,7 @@ void DecodedString(FILE* fw, Node* newHead, const char* newSrtCodes, int length)
             else
                 saveNode = saveNode->right;
         }
+
         fprintf(fw, "%c", saveNode->symbol);
         pos += len;
     }
